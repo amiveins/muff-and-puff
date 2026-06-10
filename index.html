@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muff & Puff | Premium Artisan Bakery</title>
+  <meta name="description" content="Handcrafted artisan cakes made to order. Browse our signature flavours and message us on WhatsApp to order yours fresh today.">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="shortcut icon" type="image/png" href="favicon.png">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Styling Tokens & Variables */
+    :root {
+      --bg:         #0A0A0A;
+      --bg-card:    #0F0F0F;
+      --bg-alt:     #080808;
+      --border:     #1F1F1F;
+      --gold:       #F5B800;
+      --gold-light: #FFD03A;
+      --gold-dim:   rgba(245, 184, 0, 0.08);
+      --text:       #F2EDE4;
+      --muted:      #666666;
+      --whatsapp:   #25D366;
+      --whatsapp-hover: #1ebe5d;
+      
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'Inter', sans-serif;
+    }
+
+    /* Base Reset */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: #0A0A0A;
+    }
+
+    body.no-scroll {
+      overflow: hidden;
+    }
+
+    /* Typography */
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+
+    /* --- SECTION 1: NAVIGATION --- */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 48px;
+      z-index: 100;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+    }
+    
+    .nav-scrolled {
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid #181818;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      z-index: 1001;
+      height: 100%;
+      padding: 4px 0;
+    }
+
+    .nav-logo-mark {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-logo-text {
+      height: 22px;
+      width: auto;
+      object-fit: contain;
+      margin-top: 1px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-brand:hover .nav-logo-mark {
+      transform: scale(1.03);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    /* WhatsApp Button Styles */
+    .btn-wa-filled {
+      background-color: var(--whatsapp);
+      color: #FFFFFF;
+      border: none;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 2px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-wa-filled:hover {
+      background-color: var(--whatsapp-hover);
+      transform: translateY(-2px);
+    }
+
+    .btn-wa-outline {
+      background-color: transparent;
+      color: var(--whatsapp);
+      border: 1px solid var(--whatsapp);
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 2px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-wa-outline:hover {
+      background-color: rgba(37, 211, 102, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .wa-icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Hamburger Toggle */
+    .hamburger-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 24px;
+      height: 18px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001;
+    }
+
+    .hamburger-toggle .bar {
+      width: 100%;
+      height: 2px;
+      background-color: var(--text);
+      transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+    }
+
+    .hamburger-toggle.active .bar:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+      background-color: var(--gold);
+    }
+
+    .hamburger-toggle.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger-toggle.active .bar:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+      background-color: var(--gold);
+    }
+
+    /* Fullscreen Mobile Menu Overlay */
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 10, 10, 0.98);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: scale(1.05);
+      transition: opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1), transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: scale(1);
+    }
+
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      text-align: center;
+    }
+
+    .mobile-link {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--text);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-link:hover {
+      color: var(--gold);
+    }
+
+    .mobile-wa-btn {
+      margin-top: 16px;
+    }
+
+
+    /* --- SECTION 2: HERO --- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at center, rgba(245, 184, 0, 0.15) 0%, transparent 60%),
+        linear-gradient(to bottom, rgba(10, 10, 10, 0.4), rgba(10, 10, 10, 1));
+      overflow: hidden;
+      padding: 120px 24px 80px 24px;
+      box-sizing: border-box;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/hero.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .hero-logo-wrap {
+      margin-bottom: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-logo-mark {
+      height: 180px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 35px rgba(245, 184, 0, 0.45));
+    }
+
+    .hero-logo-text {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 8vw, 110px);
+      line-height: 0.92;
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 28px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    /* Gold text shimmer animation */
+    .hero-title em {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      background: linear-gradient(
+        90deg,
+        var(--gold) 0%,
+        var(--gold-light) 50%,
+        var(--gold) 100%
+      );
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 5s linear infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 0% center; }
+      100% { background-position: -200% center; }
+    }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 420px;
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 44px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-gold {
+      background-color: var(--gold);
+      color: #0A0A0A;
+      border: none;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-gold:hover {
+      background-color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      opacity: 1;
+      transition: opacity 0.4s ease;
+      pointer-events: auto;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      transform-origin: top;
+      animation: scroll-wave 2s infinite ease-in-out;
+    }
+
+    @keyframes scroll-wave {
+      0% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+      51% { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* Staggered Fade-Up Animations */
+    .fade-in-element {
+      opacity: 1;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-in-element {
+        opacity: 0;
+        animation: fadeUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+      .delay-1 { animation-delay: 0.15s; }
+      .delay-2 { animation-delay: 0.3s; }
+      .delay-3 { animation-delay: 0.45s; }
+      .delay-4 { animation-delay: 0.6s; }
+      .delay-5 { animation-delay: 0.75s; }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* --- SECTION 3: HOW IT WORKS STRIP --- */
+    .how-it-works {
+      background-color: #0C0C0C;
+      border-top: 1px solid #181818;
+      border-bottom: 1px solid #181818;
+      padding: 64px 24px;
+    }
+
+    .how-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    .how-step {
+      flex: 1;
+      padding: 0 48px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .how-divider {
+      width: 1px;
+      background: rgba(245, 184, 0, 0.2);
+    }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 280px;
+      font-weight: 300;
+    }
+
+
+    /* --- CSS MARQUEE TICKER --- */
+    .marquee-wrap {
+      overflow: hidden;
+      width: 100%;
+      background: #080808;
+      border-bottom: 1px solid #181818;
+      padding: 22px 0;
+      display: flex;
+    }
+
+    .marquee-content {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee-scroll 25s linear infinite;
+    }
+
+    .marquee-item {
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .marquee-item::after {
+      content: '★';
+      margin-left: 80px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    @keyframes marquee-scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .marquee-content {
+        animation: none;
+        white-space: normal;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+
+
+    /* --- SECTION 4: CAKES GRID (id="cakes") --- */
+    .cakes-section {
+      padding: 120px 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold);
+      margin-bottom: 12px;
+      text-align: center;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 54px);
+      color: var(--text);
+      margin-bottom: 64px;
+      text-align: center;
+      font-weight: 300;
+      line-height: 1.1;
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cakes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    /* Cake Card and Hover Effects */
+    .cake-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s ease;
+    }
+
+    /* Top gold shimmer line on hover */
+    .cake-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      z-index: 2;
+    }
+
+    .cake-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .cake-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .cake-img-container {
+      position: relative;
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      background: #141414;
+    }
+
+    .cake-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .cake-card:hover .cake-img {
+      transform: scale(1.08);
+    }
+
+    /* Special CSS color-shifting filter for Pistachio Rose */
+    .pistachio-filter {
+      filter: hue-rotate(90deg) saturate(0.8) contrast(1.1) brightness(0.9);
+    }
+
+    .cake-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      background-color: var(--gold-dim);
+      border: 1px solid rgba(245, 184, 0, 0.2);
+      color: var(--gold);
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 12px;
+      border-radius: 2px;
+      backdrop-filter: blur(4px);
+      z-index: 1;
+    }
+
+    .cake-details {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .cake-name {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .cake-description {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: #888888;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      flex-grow: 1;
+    }
+
+    .cake-price {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .cake-wa-btn {
+      width: 100%;
+      padding: 12px 24px;
+      font-size: 11px;
+    }
+
+
+    /* --- SECTION 5: WHATSAPP CTA --- */
+    .wa-cta-section {
+      background-color: #080808;
+      padding: 120px 24px;
+      text-align: center;
+      border-top: 1px solid #161616;
+      border-bottom: 1px solid #161616;
+    }
+
+    .wa-cta-container {
+      max-width: 620px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-whatsapp-icon {
+      width: 64px;
+      height: 64px;
+      color: var(--whatsapp);
+      margin-bottom: 24px;
+    }
+
+    .wa-cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 5vw, 44px);
+      color: var(--text);
+      margin-bottom: 16px;
+      font-weight: 300;
+      line-height: 1.2;
+    }
+
+    .wa-cta-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .wa-cta-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .wa-cta-btn {
+      font-size: 13px;
+      padding: 16px 40px;
+    }
+
+    .wa-reply-note {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: #444444;
+      margin-top: 16px;
+    }
+
+
+    /* --- SECTION 6: ABOUT STRIP & MAP --- */
+    .about-strip {
+      background-color: #080808;
+      border-top: 1px solid #161616;
+      border-bottom: 1px solid #161616;
+      padding: 120px 24px;
+    }
+
+    .about-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .about-title {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5vw, 48px);
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+
+    .about-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .about-desc {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+
+    .about-right {
+      width: 100%;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      border-radius: 2px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .stat-number {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--gold);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    /* Google Map Card */
+    .map-card {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background-color: #0E0E0E;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-image: radial-gradient(circle at center, #1E1E1E 1px, transparent 1px), linear-gradient(to right, rgba(245,184,0,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(245,184,0,0.02) 1px, transparent 1px);
+      background-size: 20px 20px, 40px 40px, 40px 40px;
+      transition: border-color 0.3s ease, transform 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 56px;
+    }
+
+    .map-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+    }
+
+    .map-card-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      z-index: 2;
+      padding: 24px;
+    }
+
+    .map-icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 23px;
+      background: var(--gold-dim);
+      border: 1px solid rgba(245, 184, 0, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .map-card-title {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .map-card-subtitle {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+
+    /* --- SECTION 7: FOOTER (Enlarged) --- */
+    footer {
+      background-color: var(--bg);
+      border-top: 1px solid #161616;
+      padding: 96px 48px; /* Increased padding */
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; /* Aligned to top */
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .footer-logo-mark {
+      height: 78px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-logo-text {
+      height: 26px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-location-link {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px; /* Increased size */
+      font-family: var(--font-body);
+      line-height: 1.6;
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 8px;
+      transition: color 0.3s ease;
+      text-align: left;
+      max-width: 300px;
+    }
+
+    .footer-location-link:hover {
+      color: var(--gold);
+    }
+
+    .footer-location-link span {
+      margin-top: 2px;
+    }
+
+    .footer-center {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .footer-section-title {
+      font-family: var(--font-body);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .footer-socials {
+      display: flex;
+      flex-direction: column;
+      gap: 16px; /* Stacked layout */
+    }
+
+    .footer-socials a {
+      font-family: var(--font-body);
+      font-size: 15px; /* Increased size */
+      color: var(--muted);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: color 0.3s ease, transform 0.2s ease;
+    }
+
+    .footer-socials a:hover {
+      color: var(--gold);
+      transform: translateX(4px);
+    }
+
+    .social-icon {
+      width: 20px;
+      height: 20px;
+      color: inherit;
+    }
+
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 18px;
+    }
+
+    .footer-phone {
+      font-family: var(--font-body);
+      font-size: 18px; /* Increased size */
+      color: var(--text);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-phone:hover {
+      color: var(--gold);
+    }
+
+    .footer-copy {
+      font-family: var(--font-body);
+      font-size: 14px; /* Increased size */
+      color: var(--muted);
+    }
+
+
+    /* --- RESPONSIVE MEDIA QUERIES --- */
+    @media (max-width: 1024px) {
+      nav {
+        padding: 0 24px;
+      }
+      
+      .about-container {
+        gap: 40px;
+      }
+      
+      footer {
+        padding: 80px 24px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      /* Navigation */
+      nav {
+        height: 64px;
+        padding: 0 16px;
+      }
+      
+      .nav-brand {
+        gap: 10px;
+      }
+      
+      .nav-logo-mark {
+        height: 36px;
+      }
+      
+      .nav-logo-text {
+        height: 18px;
+        margin-top: 1px;
+      }
+
+      .nav-links, .nav-actions {
+        display: none;
+      }
+      
+      .hamburger-toggle {
+        display: flex;
+      }
+      
+      /* Hero */
+      .hero {
+        padding-top: 100px;
+      }
+      
+      .hero-logo-mark {
+        height: 130px;
+      }
+      
+      .hero-logo-text {
+        height: 44px;
+      }
+
+      .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 32px;
+      }
+      
+      /* How It Works */
+      .how-container {
+        flex-direction: column;
+        gap: 48px;
+      }
+      
+      .how-step {
+        padding: 0;
+      }
+      
+      .how-divider {
+        display: none;
+      }
+      
+      /* Cakes */
+      .cakes-section {
+        padding: 80px 16px;
+      }
+      
+      .section-title {
+        margin-bottom: 40px;
+      }
+      
+      .wa-cta-section {
+        padding: 80px 16px;
+      }
+      
+      /* About */
+      .about-strip {
+        padding: 80px 16px;
+      }
+      
+      .about-container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+      
+      .about-left {
+        align-items: center;
+        text-align: center;
+      }
+      
+      .stats-grid {
+        gap: 16px;
+      }
+      
+      .stat-card {
+        padding: 24px 16px;
+      }
+      
+      .map-card {
+        margin-top: 40px;
+        height: 180px;
+      }
+      
+      /* Footer */
+      footer {
+        padding: 64px 16px;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        gap: 48px;
+        align-items: center;
+        text-align: center;
+      }
+      
+      .footer-left {
+        align-items: center;
+      }
+      
+      .footer-location-link {
+        text-align: center;
+        align-items: center;
+      }
+
+      .footer-socials {
+        align-items: center;
+      }
+      
+      .footer-socials a:hover {
+        transform: none;
+      }
+      
+      .footer-right {
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIXED NAVIGATION -->
+  <nav id="navbar">
+    <a href="#" class="nav-brand" id="navBrand">
+      <img src="monogram_transparent.png" alt="mp" class="nav-logo-mark">
+      <img src="wordmark_transparent.png" alt="Muff & Puff" class="nav-logo-text">
+    </a>
+    
+    <div class="nav-links">
+      <a href="#cakes">Menu</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    
+    <div class="nav-actions">
+      <button class="btn-wa-filled" onclick="generalInquiry()" id="navWhatsAppBtn">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+        </svg>
+        Order on WhatsApp
+      </button>
+    </div>
+    
+    <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Open navigation menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </nav>
+
+  <!-- FULLSCREEN MOBILE OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-links">
+      <a href="#cakes" class="mobile-link">Menu</a>
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <button class="btn-wa-filled mobile-wa-btn" onclick="generalInquiry()" id="mobileWhatsAppBtn">
+        <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+        </svg>
+        Order on WhatsApp
+      </button>
+    </div>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-logo-wrap fade-in-element delay-1">
+        <img src="monogram_transparent.png" alt="mp" class="hero-logo-mark">
+        <img src="wordmark_transparent.png" alt="Muff & Puff" class="hero-logo-text">
+      </div>
+      
+      <span class="hero-eyebrow fade-in-element delay-2">Artisan Bakery &middot; Est. 2026</span>
+      
+      <h1 class="hero-title fade-in-element delay-3">
+        <span>Baked Fresh.</span>
+        <span>Ordered <em>Simply.</em></span>
+      </h1>
+      
+      <p class="hero-subtitle fade-in-element delay-4">
+        Handcrafted cakes made to order. Pick your flavour, message us on WhatsApp, we handle the rest.
+      </p>
+      
+      <div class="hero-buttons fade-in-element delay-5">
+        <a href="#cakes" class="btn-gold" id="seeCakesBtn">See Our Cakes</a>
+        <button class="btn-wa-outline" onclick="generalInquiry()" id="heroChatWhatsAppBtn">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+          </svg>
+          Chat on WhatsApp
+        </button>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS STRIP -->
+  <section class="how-it-works">
+    <div class="how-container">
+      <div class="how-step">
+        <span class="step-number">01</span>
+        <h3 class="step-title">Choose Your Flavour</h3>
+        <p class="step-desc">Browse our 9 signature cake flavours below</p>
+      </div>
+      <div class="how-divider"></div>
+      <div class="how-step">
+        <span class="step-number">02</span>
+        <h3 class="step-title">Message Us</h3>
+        <p class="step-desc">Tap any cake's WhatsApp button to send your order</p>
+      </div>
+      <div class="how-divider"></div>
+      <div class="how-step">
+        <span class="step-number">03</span>
+        <h3 class="step-title">We Deliver</h3>
+        <p class="step-desc">Confirm details with our team and receive your cake</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEAMLESS SLIDING TICKER (MARQUEE) -->
+  <div class="marquee-wrap">
+    <div class="marquee-content">
+      <span class="marquee-item">Baked Fresh Daily</span>
+      <span class="marquee-item">9 Signature Flavours</span>
+      <span class="marquee-item">100% Made to Order</span>
+      <span class="marquee-item">Premium Artisan Quality</span>
+      <span class="marquee-item">Baked Fresh Daily</span>
+      <span class="marquee-item">9 Signature Flavours</span>
+      <span class="marquee-item">100% Made to Order</span>
+      <span class="marquee-item">Premium Artisan Quality</span>
+    </div>
+  </div>
+
+  <!-- CAKES SECTION -->
+  <section class="cakes-section" id="cakes">
+    <span class="section-eyebrow">OUR SIGNATURE FLAVOURS</span>
+    <h2 class="section-title">Your Cakes. <em>One WhatsApp away.</em></h2>
+    
+    <div class="cakes-grid">
+      <!-- Cake 1 -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Most Loved</span>
+          <img src="images/red_velvet.png" alt="Red Velvet Dream" class="cake-img" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Red Velvet Dream</h3>
+          <p class="cake-description">Classic red velvet layers with silky cream cheese frosting and a hint of cocoa</p>
+          <span class="cake-price">From &#8377;499</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Red Velvet Dream', '&#8377;499')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cake 2 -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Bestseller</span>
+          <img src="images/black_forest.png" alt="Black Forest Royale" class="cake-img" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Black Forest Royale</h3>
+          <p class="cake-description">Dark chocolate sponge, whipped cream, and cherries soaked in kirsch syrup</p>
+          <span class="cake-price">From &#8377;599</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Black Forest Royale', '&#8377;599')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cake 3 -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Chocoholic</span>
+          <img src="images/chocolate_fudge.png" alt="Belgian Chocolate Fudge" class="cake-img" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Belgian Chocolate Fudge</h3>
+          <p class="cake-description">Three layers of dense dark chocolate cake with Belgian ganache and chocolate shards</p>
+          <span class="cake-price">From &#8377;799</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Belgian Chocolate Fudge', '&#8377;799')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cake 4 -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Classic</span>
+          <img src="images/vanilla_bean.png" alt="Vanilla Bean Cloud" class="cake-img" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Vanilla Bean Cloud</h3>
+          <p class="cake-description">Light Madagascar vanilla sponge with fresh cream and real vanilla bean specks throughout</p>
+          <span class="cake-price">From &#8377;499</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Vanilla Bean Cloud', '&#8377;499')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cake 5 -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Trending</span>
+          <img src="images/biscoff_bliss.png" alt="Lotus Biscoff Bliss" class="cake-img" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Lotus Biscoff Bliss</h3>
+          <p class="cake-description">Biscoff spread filling between moist layers, topped with crushed Lotus cookies and caramel drizzle</p>
+          <span class="cake-price">From &#8377;899</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Lotus Biscoff Bliss', '&#8377;899')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cake 6 -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Seasonal</span>
+          <img src="images/mango_tango.png" alt="Mango Tango" class="cake-img" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Mango Tango</h3>
+          <p class="cake-description">Seasonal fresh mango cream cake with mango compote filling and toasted coconut sides</p>
+          <span class="cake-price">From &#8377;599</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Mango Tango', '&#8377;599')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cake 7: Salted Caramel Crunch (Uses Biscoff Bliss Studio image) -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Signature</span>
+          <img src="images/biscoff_bliss.png" alt="Salted Caramel Crunch" class="cake-img" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Salted Caramel Crunch</h3>
+          <p class="cake-description">Brown butter sponge with salted caramel buttercream and praline crunch between every layer</p>
+          <span class="cake-price">From &#8377;699</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Salted Caramel Crunch', '&#8377;699')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cake 8: Strawberry Garden (Uses Red Velvet Studio image) -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Fresh</span>
+          <img src="images/red_velvet.png" alt="Strawberry Garden" class="cake-img" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Strawberry Garden</h3>
+          <p class="cake-description">Fresh strawberry sponge with strawberry compote, whipped cream and whole berry topping</p>
+          <span class="cake-price">From &#8377;599</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Strawberry Garden', '&#8377;599')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+      
+      <!-- Cake 9: Pistachio Rose (Uses Vanilla Bean Studio image + custom CSS green tint filter) -->
+      <div class="cake-card">
+        <div class="cake-img-container">
+          <span class="cake-badge">Exotic</span>
+          <img src="images/vanilla_bean.png" alt="Pistachio Rose" class="cake-img pistachio-filter" loading="lazy">
+        </div>
+        <div class="cake-details">
+          <h3 class="cake-name">Pistachio Rose</h3>
+          <p class="cake-description">Middle Eastern-inspired pistachio cake with rosewater cream and crushed pistachio topping</p>
+          <span class="cake-price">From &#8377;799</span>
+          <button class="btn-wa-filled cake-wa-btn" onclick="orderOnWhatsApp('Pistachio Rose', '&#8377;799')">
+            <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+            </svg>
+            Order on WhatsApp
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHATSAPP CTA SECTION -->
+  <section class="wa-cta-section">
+    <div class="wa-cta-container">
+      <svg class="cta-whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+      </svg>
+      <h2 class="wa-cta-title">Not sure which cake? <em>Just ask us.</em></h2>
+      <p class="wa-cta-desc">Send us a message and our team will help you choose the perfect cake for your occasion, size, and budget.</p>
+      <button class="btn-wa-filled wa-cta-btn" onclick="generalInquiry()" id="ctaChatWhatsAppBtn">
+        💬 Start a Conversation on WhatsApp
+      </button>
+      <span class="wa-reply-note">Typically replies within 1 hour</span>
+    </div>
+  </section>
+
+  <!-- ABOUT STRIP -->
+  <section class="about-strip" id="about">
+    <div class="about-container">
+      <div class="about-left">
+        <span class="section-eyebrow" style="text-align: left;">THE BAKERY</span>
+        <h2 class="about-title">Made to order.<br><em>Never mass produced.</em></h2>
+        <p class="about-desc">
+          Every Muff & Puff cake is baked fresh after your order. We don't keep stock &mdash; your cake is made specifically for you, on the day you need it.
+        </p>
+        <button class="btn-wa-outline" onclick="generalInquiry()" id="aboutPlaceOrderBtn">
+          <svg class="wa-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.523 5.847L.057 23.882l6.224-1.433A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.368l-.36-.214-3.714.856.897-3.605-.234-.37A9.818 9.818 0 012.182 12c0-5.42 4.398-9.818 9.818-9.818 5.42 0 9.818 4.398 9.818 9.818 0 5.42-4.398 9.818-9.818 9.818z"/>
+          </svg>
+          Place Your Order
+        </button>
+      </div>
+      <div class="about-right">
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">9+</span>
+            <span class="stat-label">Signature Flavours</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">48h</span>
+            <span class="stat-label">Advance Notice</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Made to Order</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">5★</span>
+            <span class="stat-label">Customer Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clickable Map Card Section -->
+    <div style="max-width: 1200px; margin: 0 auto; width: 100%;">
+      <a href="https://www.google.com/maps/place/Muff+and+Puff/data=!4m2!3m1!1s0x398e2dfa3addc9e5:0x933751da7a117203?sa=X&ved=1t:242&ictx=111" target="_blank" rel="noopener" class="map-card">
+        <div class="map-card-content">
+          <div class="map-icon-wrap">📍</div>
+          <h3 class="map-card-title">Gilat Bazar, Shivpur, Varanasi</h3>
+          <span class="map-card-subtitle">Uttar Pradesh 221002 &middot; Click for Directions</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="footer-container">
+      <div class="footer-left">
+        <div class="footer-logo">
+          <img src="monogram_transparent.png" alt="mp" class="footer-logo-mark">
+          <img src="wordmark_transparent.png" alt="Muff & Puff" class="footer-logo-text">
+        </div>
+        <a href="https://www.google.com/maps/place/Muff+and+Puff/data=!4m2!3m1!1s0x398e2dfa3addc9e5:0x933751da7a117203?sa=X&ved=1t:242&ictx=111" target="_blank" rel="noopener" class="footer-location-link">
+          <span>📍 Gilat Bazar, Shivpur, Varanasi,<br>Uttar Pradesh 221002</span>
+        </a>
+      </div>
+      
+      <div class="footer-center">
+        <span class="footer-section-title">Explore</span>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/muffandpuffbakers?igsh=MWJneTh3emx5OHdlbA==" target="_blank" rel="noopener">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+            Instagram
+          </a>
+          <a href="https://zomato.onelink.me/xqzv/h0wk6grh" target="_blank" rel="noopener">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-6h2v6zm0-8h-2V7h2v2zm4 8h-2v-4h2v4zm0-6h-2V7h2v2z"/>
+            </svg>
+            Zomato
+          </a>
+          <a href="https://www.google.com/maps/place/Muff+and+Puff/data=!4m2!3m1!1s0x398e2dfa3addc9e5:0x933751da7a117203?sa=X&ved=1t:242&ictx=111" target="_blank" rel="noopener">
+            <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+            </svg>
+            Google Reviews
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-right">
+        <a href="tel:+916392333823" class="footer-phone">+91 63923 33823</a>
+        <p class="footer-copy">&copy; 2025 Muff & Puff</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT CONTROLLERS -->
+  <script>
+    // WhatsApp Phone Configuration
+    const WHATSAPP_PHONE = "916392333823";
+
+    // 1. Order Triggering
+    function orderOnWhatsApp(cakeName, price) {
+      // Decode HTML entities if any (like &#8377; -> ₹)
+      const decodedPrice = price.replace('&#8377;', '₹');
+      const msg = `Hi Muff & Puff! 👋 I'd like to order a *${cakeName}*\nPrice: ${decodedPrice}\nPlease let me know availability and delivery details. Thank you!`;
+      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // 2. General Inquiry Triggering
+    function generalInquiry() {
+      const msg = "Hi Muff & Puff! 👋 I'd like to place a cake order. Can you help me choose a flavour?";
+      window.open(`https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    // 3. Scroll Interactions & Navigation Styling
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      const scrollIndicator = document.getElementById('scrollIndicator');
+      
+      if (window.scrollY > 60) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
+      
+      if (scrollIndicator) {
+        if (window.scrollY > 100) {
+          scrollIndicator.style.opacity = '0';
+          scrollIndicator.style.pointerEvents = 'none';
+        } else {
+          scrollIndicator.style.opacity = '1';
+          scrollIndicator.style.pointerEvents = 'auto';
+        }
+      }
+    });
+
+    // 4. Mobile Menu Interactions
+    const hamburgerToggle = document.getElementById('hamburgerToggle');
+    const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function toggleMobileMenu() {
+      hamburgerToggle.classList.toggle('active');
+      mobileMenuOverlay.classList.toggle('active');
+      document.body.classList.toggle('no-scroll');
+    }
+
+    hamburgerToggle.addEventListener('click', toggleMobileMenu);
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburgerToggle.classList.remove('active');
+        mobileMenuOverlay.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+      });
+    });
+  </script>
+</body>
+</html>
